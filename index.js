@@ -13,9 +13,13 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+
+function createMenuItem(name, price, category){
+  return {name, price, category};
 }
+
+console.log(createMenuItem('pizza', 12, 'Lunch'));
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Test your createMenuItems function by doing the following:
@@ -25,6 +29,10 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+console.log(createMenuItem('Burger', 8, 'Lunch'));
+console.log(createMenuItem('Cake', 7, 'Dessert'));
+console.log(createMenuItem('Fries', 6, 'Side'));
+
 
 
 
@@ -45,9 +53,15 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
-}
-
+  discount: function(role) {
+    if (role === "teacher" || role === "student") {
+      return this.price * .75;
+    } else {
+      return this.price * .90;
+    }
+  }
+};
+console.log(burger.discount("teacher"));
 
 
 ///////////////Reviews (MVP)///////////////////
