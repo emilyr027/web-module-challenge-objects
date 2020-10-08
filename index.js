@@ -15,7 +15,7 @@ The function should:
 
 
 function createMenuItem(name, price, category){
-  return {name, price, category};
+  return {name: name, price: price, category: category};
 }
 
 console.log(createMenuItem('pizza', 12, 'Lunch'));
@@ -63,6 +63,22 @@ export const burger = {
 };
 console.log(burger.discount("teacher"));
 
+// const burger = {
+//   name: "Burger",
+//   price: 18,
+//   category: "Lunch",
+// } 
+// function discount(role, food) {
+//   if (role === "teacher" || role === "student") {
+//     return food.price * .75;
+//    } else {
+//     return food.price * .90;
+//         }
+// }
+// console.log(discount("teacher", burger));
+// --this works but not with the test--- more universal
+
+
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
@@ -80,8 +96,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console
 */
-
-
+console.log(reviews[5].feedback);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -89,6 +104,11 @@ Using the reviews array above do the following:
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
+function addReview(reviews, name, rating, feedback){
+  reviews.push({name, rating, feedback});
+  return reviews;
+}
+console.log(addReview(reviews, "Alexa", 4.5, "I love getting healthy vegan snacks here. They are so yummy!"));
 
 
 
@@ -97,8 +117,12 @@ Reyna's feedback is missing! Use what you know to do the following:
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
+function changeFeedback(array, index, feedback){
+  array[index].feedback = feedback;
+  return array;
+}
 
-
+console.log(changeFeedback(reviews, 8, "this place is chill with really cool people, great for getting work done on weekdays"));
 
 
 
@@ -108,15 +132,19 @@ Write a function to return a review based on the index of the review in the arra
 Use the getReviewByIndex function below to do the following:
   1. Receive two arguements: the array that holds all the reviews and an index position of the review to display
   2. The function should return the following string: "{name} gave the restaurant a {rating} star review and their feedback was: {feedback}"
-  For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review and their feedback was: Beautiful atmosphere and wonderful vegan options!"
+  For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, index) {
+  let reviewName = array[index].name;
+  let reviewRating = array[index].rating;
+  let reviewFeedback = array[index].feedback;
+  // return (reviewName + ' gave the restaurant a ' + reviewRating + ' star review, and their feedback was: ' + reviewFeedback);
+  return (`${reviewName} gave the restaurant a ${reviewRating} star review, and their feedback was: ${reviewFeedback}`);
 }
 
-
+console.log(getReviewByIndex(reviews,0));
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -129,10 +157,15 @@ Use the getLastReview function below to do the following:
   For example: getLastReview(reviews) would return: "Reyna gave the restaurant a 3.5 star review and their feedback was: this place is chill with really cool people, great for getting work done on weekdays".
 */
 
+function getLastReview(array) {
+  let lastReview = array[array.length - 1];
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+
+  // return (lastReview.name + ' gave the restaurant a ' + lastReview.rating + ' star review, and their feedback was: ' + lastReview.feedback);
+  return (`${lastReview.name} gave the restaurant a ${lastReview.rating} star review, and their feedback was: ${lastReview.feedback}`);
 } 
+
+console.log(getLastReview(reviews));
 
 
 
@@ -152,8 +185,13 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(array, rating) {
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+
+      
+      
+    }
   }
 
   
